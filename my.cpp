@@ -53,7 +53,6 @@ int main()
 	int n, i, j;
 
 	cin >> n;
-	cin >> n;
 
 	
 	//cin >> n;
