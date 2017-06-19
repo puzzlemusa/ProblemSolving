@@ -40,66 +40,30 @@ using namespace std;
 
 typedef long long Long;
 
-const int maxn = 1e9 + 10;
-vector<int>v, u;
-
-class Solution {
-public:
-	double findMedianSortedArrays(vector<int>& A, vector<int>& B) {
-		int n = sz(A);
-		int m = sz(B);
-		
-		if (n > m)
-			return findMedianSortedArrays(B, A);
-
-		if (n == 0)
-			return ((double)B[(m - 1) / 2] + (double)B[m / 2]) / 2;
-
-		int k = (n + m - 1) / 2;
-		int l = 0, r = min(k, n);
-		while (l < r) {
-			int midA = (l + r) / 2;
-			int midB = k - midA;
-			if (A[midA] < B[midB])
-				l = midA + 1;
-			else
-				r = midA;
-		}
-
-		int a = max(l > 0 ? A[l - 1] : INT_MIN, k - l >= 0 ? B[k - l] : INT_MIN);
-		if (((n + m) & 1) == 1)
-			return (double)a;
-
-		int b = min(l < n ? A[l] : INT_MAX, k - l + 1 < m ? B[k - l + 1] : INT_MAX);
-		return (a + b) / 2.0;
-	}
-};
+vector<Long>v;
 
 int main()
 {
 	ios_base::sync_with_stdio(0);
 #ifdef localhost
-	freopen("E://input.txt", "r", stdin);
+	//freopen("E://input.txt", "r", stdin);
 	//freopen("E://output.txt","w",stdout);
 #endif
-	Solution sol;
-	int n, i, j, m;
+	Long n, i, mx = 0, tot = 0;
 
-	cin >> n >> m;
+	cin >> n;
 
 	frn(i, n) {
-		int a;
+		Long a;
 		cin >> a;
-		v.push_back(a);
+		tot += a;
+		mx = max(mx, a);
 	}
 
-	frn(i, m) {
-		int a;
-		cin >> a;
-		u.push_back(a);
-	}
+	Long r = tot - mx;
 
-	cout << sol.findMedianSortedArrays(v, u);
+
+	cout << mx - r + 1;
 
 	//cin >> n;
 	return 0;
