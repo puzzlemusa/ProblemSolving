@@ -23,7 +23,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C667.cpp">
+    <ClCompile Include="B651BetterWayWithMultiSet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
