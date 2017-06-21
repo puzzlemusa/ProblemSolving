@@ -23,7 +23,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LongestPalindromicSubstring.cpp">
+    <ClCompile Include="ZigzagConversion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
