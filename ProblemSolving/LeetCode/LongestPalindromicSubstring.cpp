@@ -46,7 +46,7 @@ bool isPal(string s, int b, int e) {
 	if (b < 0)
 		return false;
 
-	s = s.substr(b, b - e + 1);
+	s = s.substr(b, e - b + 1);
 
 	string s1 = s;
 	reverse(li(s1));
@@ -66,12 +66,12 @@ public:
 		int i;
 		frn(i, sz(s)) {
 			if (isPal(s, i - mxl - 1, i)) {
-				r = s.substr(i - mxl - 1, i + 1);
+				r = s.substr(i - mxl - 1, mxl + 2);
 				mxl += 2;
 			}
 
 			else if (isPal(s, i - mxl, i)) {
-				r = s.substr(i - mxl, i + 1);
+				r = s.substr(i - mxl, mxl + 1);
 				mxl++;
 			}
 		}
@@ -84,7 +84,7 @@ int main()
 {
 	ios_base::sync_with_stdio(0);
 #ifdef localhost
-	//freopen("E://input.txt", "r", stdin);
+	freopen("E://input.txt", "r", stdin);
 	//freopen("E://output.txt","w",stdout);
 #endif
 	Solution sol;
