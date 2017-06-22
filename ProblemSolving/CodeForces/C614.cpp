@@ -41,7 +41,11 @@ using namespace std;
 typedef long long Long;
 
 const Long maxn = 1e18 + 10;
-vector<int>v;
+vector<pair<double, double>>v;
+
+double distance(double a, double b, double c, double d) {
+	return sqrt((a - c) * (a - c) + (d - b) * (d - b));
+}
 
 int main()
 {
@@ -50,18 +54,32 @@ int main()
 	freopen("E://input.txt", "r", stdin);
 	//freopen("E://output.txt","w",stdout);
 #endif
-	int n, i, j, a, b;
-	pair<int, int> P;
+	int n, i, j;
+	pair<double, double> P;
 	double mx = 0, mn = maxn, d;
 
 	cin >> n >> P.first >> P.second;
+	v.resize(n + 1);
 
 	frn(i, n) {
-		cin >> a >> b;
-		d = sqrt(((a - P.first) * (a - P.first)) + ((b - P.second) * (b - P.second)));
+		cin >> v[i].first >> v[i].second;
+		d = distance(P.first, P.second, v[i].first, v[i].second);
 
 		mx = max(mx, d);
-		mn = min(mn, d);
+	}
+	v[n] = v[0];
+
+	frn(i, n) {
+		double ds = distance(v[i].first, v[i].second, v[i + 1].first, v[i + 1].second);
+		double dx = distance(P.first, P.second, v[i].first, v[i].second);
+		double dx1 = distance(P.first, P.second, v[i+1].first, v[i+1].second);
+		double ara = fabs(((v[i].first - P.first) * (v[i + 1].second - P.second)) - ((v[i + 1].first - P.first) * (v[i].second - P.second)));
+		double h = ara / ds;
+
+		if ((dx * dx + ds * ds < dx1 * dx1) || (dx1 * dx1 + ds * ds < dx * dx))
+			mn = min(mn, dx);
+		else
+			mn = min(mn, h);
 	}
 
 	double r = (pi * mx * mx) - (pi * mn * mn);
