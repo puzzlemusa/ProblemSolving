@@ -23,7 +23,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ZigzagConversion.cpp">
+    <ClCompile Include="ReverseInteger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
