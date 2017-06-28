@@ -40,60 +40,27 @@ using namespace std;
 
 typedef long long Long;
 
-const int maxn = 5e4 + 10;
-int v[maxn], l[maxn], r[maxn], vis[maxn], mem[maxn];
-
-void DP(int i) {
-	int j, tot = 0, res = mem[i - 1];
-	SET(vis, 0);
-	int to = i;
-
-	frr(j, i + 1) {
-		int x = v[j];
-
-		if (r[x] > i)
-			break;
-
-		to = min(to, l[x]);
-
-		if (!vis[x]) {
-			vis[x] = true;
-			tot ^= x;
-		}
-
-		if (to == j) {
-			res = max(res, mem[j - 1] + tot);
-		}
-	}
-
-	mem[i] = res;
-}
+const int maxn = 1e9 + 10;
+vector<int>v;
 
 int main()
 {
 	ios_base::sync_with_stdio(0);
 #ifdef localhost
-	freopen("E://input.txt", "r", stdin);
+	//freopen("E://input.txt", "r", stdin);
 	//freopen("E://output.txt","w",stdout);
 #endif
 	int n, i, j;
 
 	cin >> n;
+	v.resize(n);
 
-	frN(i, n) {
+	frn(i, n)
 		cin >> v[i];
-		if (!l[v[i]])
-			l[v[i]] = i;
 
-		r[v[i]] = i;
-	}
+	frr(i, n)
+		cout << v[i] << " ";
 
-	mem[0] = 0;
-	frN(i, n) {
-		DP(i);
-	}
-
-	cout << mem[n];
 
 	//cin >> n;
 	return 0;

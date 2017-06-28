@@ -40,34 +40,10 @@ using namespace std;
 
 typedef long long Long;
 
-const int maxn = 5e4 + 10;
-int v[maxn], l[maxn], r[maxn], vis[maxn], mem[maxn];
-
-void DP(int i) {
-	int j, tot = 0, res = mem[i - 1];
-	SET(vis, 0);
-	int to = i;
-
-	frr(j, i + 1) {
-		int x = v[j];
-
-		if (r[x] > i)
-			break;
-
-		to = min(to, l[x]);
-
-		if (!vis[x]) {
-			vis[x] = true;
-			tot ^= x;
-		}
-
-		if (to == j) {
-			res = max(res, mem[j - 1] + tot);
-		}
-	}
-
-	mem[i] = res;
-}
+const int maxn = 1e9 + 10;
+vector<int>v;
+map<int, int> mp;
+stack<int> sk;
 
 int main()
 {
@@ -76,25 +52,36 @@ int main()
 	freopen("E://input.txt", "r", stdin);
 	//freopen("E://output.txt","w",stdout);
 #endif
-	int n, i, j;
+	int n, i, j, a, b;
 
 	cin >> n;
 
-	frN(i, n) {
-		cin >> v[i];
-		if (!l[v[i]])
-			l[v[i]] = i;
+	while (n--) {
+		cin >> a;
 
-		r[v[i]] = i;
+		if (a == 1) {
+			cin >> b;
+			mp[b]++;
+			sk.push(b);
+		}
+
+		else if (a == 2) {
+			int r = sk.top();
+			sk.pop();
+			mp[r]--;
+
+			if (mp[r] == 0)
+				mp.erase(r);
+		}
+
+		else if (a == 3) {
+			auto it = mp.end();
+			it--;
+			cout << it->first << endl;
+		}
 	}
 
-	mem[0] = 0;
-	frN(i, n) {
-		DP(i);
-	}
-
-	cout << mem[n];
-
+	
 	//cin >> n;
 	return 0;
 }
