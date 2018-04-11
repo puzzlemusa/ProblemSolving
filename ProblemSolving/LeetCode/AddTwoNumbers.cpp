@@ -4,22 +4,22 @@ PROG:
 LANG: C++
 */
 
-#include <algorithm> 
-#include <cctype> 
-#include <cmath> 
-#include <cstdio> 
-#include <cstdlib> 
-#include <cstring> 
-#include <deque> 
-#include <iostream> 
-#include <list> 
-#include <map> 
-#include <numeric> 
-#include <queue> 
-#include <set> 
-#include <sstream> 
-#include <stack> 
-#include <string> 
+#include <algorithm>
+#include <cctype>
+#include <cmath>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <deque>
+#include <iostream>
+#include <list>
+#include <map>
+#include <numeric>
+#include <queue>
+#include <set>
+#include <sstream>
+#include <stack>
+#include <string>
 #include <vector>
 #include <unordered_map>
 #include <functional>
@@ -38,7 +38,7 @@ using namespace std;
 #define SET(v,a) memset(v,a,sizeof(v))
 #define pi (2*acos(0))
 
-typedef __int64 Long;
+typedef long long Long;
 
 const int maxn = 1e9 + 10;
 vector<int>v;

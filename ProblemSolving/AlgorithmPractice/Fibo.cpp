@@ -4,22 +4,22 @@ PROG:
 LANG: C++
 */
 
-#include <algorithm> 
-#include <cctype> 
-#include <cmath> 
-#include <cstdio> 
-#include <cstdlib> 
-#include <cstring> 
-#include <deque> 
-#include <iostream> 
-#include <list> 
-#include <map> 
-#include <numeric> 
-#include <queue> 
-#include <set> 
-#include <sstream> 
-#include <stack> 
-#include <string> 
+#include <algorithm>
+#include <cctype>
+#include <cmath>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <deque>
+#include <iostream>
+#include <list>
+#include <map>
+#include <numeric>
+#include <queue>
+#include <set>
+#include <sstream>
+#include <stack>
+#include <string>
 #include <vector>
 #include <unordered_map>
 #include <functional>
@@ -37,7 +37,7 @@ using namespace std;
 #define emt(v) v.empty()
 
 const int maxn = 1e9 + 10;
-typedef __int64 Long;
+typedef long long Long;
 vector<int>v;
 unordered_map<int, int>mp;
 int c = 0;
@@ -66,7 +66,7 @@ int fiboShowTillNthWithMemo(int n) {
 		return 1;
 		cout << n << " ";
 	}
-		
+
 	int r = fiboShowTillNthWithMemo(n - 1) + fiboShowTillNthWithMemo(n - 2);
 	cout << r << " ";
 	return mp[n] = r;
@@ -105,7 +105,7 @@ int main()
 
 	cout << "Without memorization, nth value " << fiboNth(n);
 	cout<< " with iteration: "<< c << "\n";
-	
+
 	c = 0;
 
 	cout << "With memorization, nth value " << fiboNthWithMemo(n);
