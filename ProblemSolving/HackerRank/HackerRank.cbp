@@ -96,7 +96,6 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
-		<Unit filename="main.cpp" />
 		<Unit filename="stdafx.cpp">
 			<Option compile="0" />
 			<Option link="0" />
