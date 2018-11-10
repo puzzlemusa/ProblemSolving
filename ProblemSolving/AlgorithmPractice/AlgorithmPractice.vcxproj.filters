@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ReverseString.cpp">
+    <ClCompile Include="AnagramFindingUsingArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
