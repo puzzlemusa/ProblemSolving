@@ -23,7 +23,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TreeTopView.cpp">
+    <ClCompile Include="BirthdayCakeCandle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
