@@ -38,22 +38,39 @@ using namespace std;
 #define SET(v,a) memset(v,a,sizeof(v))
 #define pi (2*acos(0))
 
-typedef long long Long;
-
 const int maxn = 2147483647;
 vector<int>v;
 
+
 class Solution {
 public:
-	int reverse(int x) {
-		string s = to_string(x);
-		std::reverse(li(s));
-		Long y = stoll(s);
+	bool canConstruct(string J, string S) {
+		map<char, int> r;
+		map<char, int> m;
+		map<char, int>::iterator it_m;
+		map<char, int>::iterator it_r;
 
-		if (y > maxn)
-			return 0;
+		int i = 0;
+		int c = 0;
+		frn(i, sz(J)) {
+			r[J[i]]++;
+		}
 
-		return x < 0 ? -y : y;
+		i = 0;
+		frn(i, sz(S)) {
+			m[S[i]]++;
+		}
+
+		for (it_r = r.begin(); it_r != r.end(); ++it_r) {
+			it_m = m.find(it_r->first);
+			if (it_m != m.end()) {
+				if (it_r->second > it_m->second)
+					return false;
+			}
+			else return false;
+		}
+
+		return true;
 	}
 };
 
@@ -61,14 +78,14 @@ int main()
 {
 	ios_base::sync_with_stdio(0);
 #ifdef localhost
-	//freopen("E://input.txt", "r", stdin);
+	freopen("E://input.txt", "r", stdin);
 	//freopen("E://output.txt","w", stdout);
 #endif
-	Solution sol;
-	int n, i, j;
-	cin >> n;
-	cout << sol.reverse(n);
 
+	Solution sol;
+	string J, S;
+	cin >> J >> S;
+	cout << sol.numJewelsInStones(J, S);
 
 	//cin >> n;
 	return 0;

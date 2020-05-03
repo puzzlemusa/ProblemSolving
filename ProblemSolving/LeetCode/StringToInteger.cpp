@@ -43,17 +43,51 @@ typedef long long Long;
 const int maxn = 2147483647;
 vector<int>v;
 
+
 class Solution {
 public:
-	int reverse(int x) {
-		string s = to_string(x);
-		std::reverse(li(s));
-		Long y = stoll(s);
+	int myAtoi(string str) {
+		int i;
+		bool num_found = false;
+		bool sign_found = false;
+		string result = "";
+		frn(i, str.length())
+		{
+			char c = str[i];
+			if(int(c == 43) || int(c) == 43)
+			{
+				if (sign_found)
+					return 0;
+				else
+				{
+					result = result + c;
+					sign_found = true;
+				}
+			}
+			else if(int(c) >= 48 && int(c) <= 57){
+				result = result + c;
+				num_found = true;
+			}
+			else if (int(c) == 32) {
+				
+			}
+			else
+			{
+				if (num_found)
+					break;
+				else 
+					return 0;
+			}
+		}
 
-		if (y > maxn)
-			return 0;
+		Long converted_result = std::stoll(result);
+		int final_result = 0;
+		if (converted_result > maxn)
+			final_result = maxn;
+		else if (converted_result < (1 - maxn - 1))
+			final_result = 1 - maxn - 1;
 
-		return x < 0 ? -y : y;
+		return final_result;
 	}
 };
 
@@ -65,10 +99,9 @@ int main()
 	//freopen("E://output.txt","w", stdout);
 #endif
 	Solution sol;
-	int n, i, j;
-	cin >> n;
-	cout << sol.reverse(n);
-
+	string s;
+	getline(cin, s);
+	cout << sol.myAtoi(s);
 
 	//cin >> n;
 	return 0;

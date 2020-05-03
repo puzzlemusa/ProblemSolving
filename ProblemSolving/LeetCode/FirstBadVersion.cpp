@@ -38,22 +38,45 @@ using namespace std;
 #define SET(v,a) memset(v,a,sizeof(v))
 #define pi (2*acos(0))
 
-typedef long long Long;
-
 const int maxn = 2147483647;
 vector<int>v;
 
+
 class Solution {
 public:
-	int reverse(int x) {
-		string s = to_string(x);
-		std::reverse(li(s));
-		Long y = stoll(s);
+	typedef long long Long;
+	int firstBadVersion(Long n) {
+		return find(1, n);
+	}
 
-		if (y > maxn)
-			return 0;
+	Long find(Long l, Long r) {
 
-		return x < 0 ? -y : y;
+		if (r >= l) {
+			Long mid = (l + r) / 2;
+
+			if (mid == 1) {
+				if (isBadVersion(mid))
+					return 1;
+				else return 2;
+			}
+				
+
+			if(isBadVersion(mid) && !isBadVersion(mid-1))
+				return mid;
+
+			if(isBadVersion(mid))
+				return find(l, mid - 1);
+		
+			return find(mid + 1, r);
+		}
+		return l;
+	}
+
+	bool isBadVersion(Long n) {
+		if (n >= 1702766719)
+			return true;
+		else
+			return false;
 	}
 };
 
@@ -61,14 +84,14 @@ int main()
 {
 	ios_base::sync_with_stdio(0);
 #ifdef localhost
-	//freopen("E://input.txt", "r", stdin);
+	freopen("E://input.txt", "r", stdin);
 	//freopen("E://output.txt","w", stdout);
 #endif
+	typedef long long Long;
 	Solution sol;
-	int n, i, j;
+	Long n;
 	cin >> n;
-	cout << sol.reverse(n);
-
+	cout << sol.firstBadVersion(n);
 
 	//cin >> n;
 	return 0;

@@ -38,22 +38,30 @@ using namespace std;
 #define SET(v,a) memset(v,a,sizeof(v))
 #define pi (2*acos(0))
 
-typedef long long Long;
-
 const int maxn = 2147483647;
 vector<int>v;
 
+
 class Solution {
 public:
-	int reverse(int x) {
-		string s = to_string(x);
-		std::reverse(li(s));
-		Long y = stoll(s);
+	int numJewelsInStones(string J, string S) {
+		map<char, int> jewels;
+		map<char, int>::iterator it;
 
-		if (y > maxn)
-			return 0;
+		int i = 0;
+		int c = 0;
+		frn(i, sz(J)){
+			jewels[J[i]] = 1;
+		}
 
-		return x < 0 ? -y : y;
+		i = 0;
+		frn(i, sz(S)) {
+			it = jewels.find(S[i]);
+			if (it != jewels.end())
+				c++;
+		}
+
+		return c;
 	}
 };
 
@@ -61,14 +69,14 @@ int main()
 {
 	ios_base::sync_with_stdio(0);
 #ifdef localhost
-	//freopen("E://input.txt", "r", stdin);
+	freopen("E://input.txt", "r", stdin);
 	//freopen("E://output.txt","w", stdout);
 #endif
+	
 	Solution sol;
-	int n, i, j;
-	cin >> n;
-	cout << sol.reverse(n);
-
+	string J, S;
+	cin >> J >> S;
+	cout << sol.numJewelsInStones(J, S);
 
 	//cin >> n;
 	return 0;

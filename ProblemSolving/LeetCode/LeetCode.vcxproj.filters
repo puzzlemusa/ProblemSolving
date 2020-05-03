@@ -23,7 +23,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ReverseInteger.cpp">
+    <ClCompile Include="RansomNote.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
