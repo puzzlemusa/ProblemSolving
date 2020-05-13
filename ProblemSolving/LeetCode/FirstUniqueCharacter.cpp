@@ -44,23 +44,27 @@ vector<int>v;
 
 class Solution {
 public:
-	int firstUniqChar(string s) {
-		map<char, int> q;
-		map<char, int>::iterator it;
+    int majorityElement(vector<int>& v) {
+        map<int, int> m;
+        map<int, int>::iterator mt;
 
-		int i = 0;
-		frn(i, sz(s)) {
-			q[s[i]]++;
-		}
-		
-		i = 0;
-		frn(i, sz(s)) {
-			if (q.find(s[i])->second == 1)
-				return i;
-		}
+        for (std::vector<int>::iterator it = v.begin(); it != v.end(); ++it) {
+            m[*it]++;
+        }
 
-		return -1;
-	}
+        int mx = 0;
+        int res = 0;
+        for (mt = m.begin(); mt != m.end(); ++mt) {
+            if (mt->second >= mx) {
+                mx = mt->second;
+                res = mt->first;
+            }
+
+
+        }
+
+        return res;
+    }
 };
 
 int main()
@@ -74,7 +78,8 @@ int main()
 	Solution sol;
 	string n;
 	cin >> n;
-	cout << sol.firstUniqChar(n);
+	vector<int> v()
+	cout << sol.majorityElement(n);
 
 	//cin >> n;
 	return 0;

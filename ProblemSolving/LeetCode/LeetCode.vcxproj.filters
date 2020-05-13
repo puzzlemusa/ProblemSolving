@@ -23,7 +23,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FirstUniqueCharacter.cpp">
+    <ClCompile Include="RemoveKDigits.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
