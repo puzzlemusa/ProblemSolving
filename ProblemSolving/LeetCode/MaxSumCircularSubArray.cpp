@@ -43,39 +43,20 @@ vector<int>v;
 
 class Solution {
 public:
-    string removeKdigits(string num, int k) {
-        int i, j;
+    int maxSubarraySumCircular(vector<int>& A) {
+        int i, totMax = -maxn, currMax = 0, totMin = maxn, currMin = 0, tot = 0;
 
-        if (k == sz(num))
-            return "0";
+        frn(i, sz(A)) {
+            currMax = max(currMax, 0) + A[i];
+            totMax = max(totMax, currMax);
 
-        frN(i, k) {
-            bool r = false;
-            frn(j, sz(num) - 1) {
-                if (num[j] > num[j + 1]) {
-                    num = num.erase(j, 1);
-                    r = true;
-                    break;
-                }
-            }
+            currMin = min(currMin, 0) + A[i];
+            totMin = min(totMin, currMin);
+            tot += A[i];
 
-            if(!r)
-                num = num.erase(j, 1);
         }
 
-        frn(i, sz(num)) {
-            if (num[i] == '0') {
-                num = num.erase(i, 1);
-                i--;
-            }
-            else
-                break;
-        }
-
-        if (num == "")
-            return "0";
-
-        return num;
+        return (totMax > 0 ? max(totMax, tot - totMin) : totMax);
     }
 };
 
@@ -86,10 +67,17 @@ int main()
     freopen("E://input.txt", "r", stdin);
     //freopen("E://output.txt","w", stdout);
 #endif
-
     Solution sol;
+    //vector<int> v = { 5, -3, 5 };
+    //vector<int> v = { 1, -2, 3, -2 };
+    //vector<int> v = { 3,-1,2,-1 };
+    //vector<int> v = { 3, -2, 2, -3 };
+    //vector<int> v = { -2, -3, -1 };
+    //vector<int> v = { -2 };
+    //vector<int> v = { 9,-4,-7,9 };
+    vector<int> v = { 7, -10, 7, -10, 7 };
 
-    cout << sol.removeKdigits("112", 1);
+    cout << sol.maxSubarraySumCircular(v);
     //cin >> n;
     return 0;
 }

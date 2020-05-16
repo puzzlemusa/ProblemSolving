@@ -23,7 +23,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="RemoveKDigits.cpp">
+    <ClCompile Include="OddEvenLinkList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
