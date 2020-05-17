@@ -32,7 +32,7 @@ int main()
 {
 	ios_base::sync_with_stdio(0);
 #ifdef localhost
-	freopen("D://input.txt", "r", stdin);
+	//freopen("D://input.txt", "r", stdin);
 	//freopen("E://output.txt","w",stdout);
 #endif
 

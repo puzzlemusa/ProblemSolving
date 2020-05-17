@@ -23,7 +23,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="OddEvenLinkList.cpp">
+    <ClCompile Include="FindAllAnagrams.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
