@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AnagramFindingUsingArray.cpp">
+    <ClCompile Include="StringPermutation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

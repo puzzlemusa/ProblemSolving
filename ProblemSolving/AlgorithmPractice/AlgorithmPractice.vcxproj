@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AnagramFindingUsingArray.cpp" />
+    <ClCompile Include="StringPermutation.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{434E2A95-14B8-46D3-945E-B25B0F8B1F57}</ProjectGuid>
