@@ -23,7 +23,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="KthSmallestElementInBinaryTree.cpp">
+    <ClCompile Include="SortCharacterByFrequency.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
