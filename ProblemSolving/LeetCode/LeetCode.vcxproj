@@ -146,7 +146,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SortCharacterByFrequency.cpp" />
+    <ClCompile Include="ConstructBinarySearchTreefromPreorderTraversal.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

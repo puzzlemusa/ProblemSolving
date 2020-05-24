@@ -23,7 +23,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SortCharacterByFrequency.cpp">
+    <ClCompile Include="ConstructBinarySearchTreefromPreorderTraversal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
