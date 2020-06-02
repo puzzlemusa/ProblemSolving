@@ -23,7 +23,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="PossibleBipartition.cpp">
+    <ClCompile Include="HouseRobber.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
