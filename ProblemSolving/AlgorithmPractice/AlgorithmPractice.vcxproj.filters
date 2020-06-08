@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="StringPermutation.cpp">
+    <ClCompile Include="CoinChangeMinWay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

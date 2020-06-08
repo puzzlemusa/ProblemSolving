@@ -23,7 +23,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TwoCityScheduling.cpp">
+    <ClCompile Include="MinCostForTickets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
