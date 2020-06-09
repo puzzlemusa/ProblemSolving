@@ -41,47 +41,45 @@ using namespace std;
 const int maxn = 2147483647;
 vector<int>v;
 map<int, int> mem;
-
+vector<int> d = { 0,6,19 };
 class Solution {
 public:
     int mincostTickets(vector<int>& days, vector<int>& costs) {
-        vector<int> m(sz(days) + 1);
-        vector<int> d = { 0,6,19 };
-        m[0] = costs[0];
-        int i, j=0, vDays, lc;
-        frn(i, sz(costs)) {
-            vDays = 0;
-            lc = 0;
-            frn(j, sz(days)) {
-                if (days[j] > vDays) {
-                    lc = m[j] = lc + costs[i];                    
-                    vDays = days[j] + d[i];
-                }                    
-            }
-        }
-        return lc;
+        int res = calc(days, costs);
+        return res;
     }
 
-    int calc(int amount, int c, vector<int>& coins) {
-        if (amount == 0)
-            return 0;
-        if (amount < 0 || c == sz(coins))
-            return maxn;
-        if (mem.find(amount) != mem.end())
-            return mem[amount];
-
-        int mn = maxn;
-        for (int i = 0; i < sz(coins); i++) {
-            mn = min(mn, calc(amount - coins[i], i, coins) + 1);
+    int calc(vector<int>& days, vector<int>& costs) {
+        vector<int> m(days[sz(days) - 1] + 1, 0);
+        
+        int i, one, sev, tw;        
+        frv(i, 1, days[sz(days)-1]+1) {
+            if (isVacation(days, i)) {
+                one = m[i - 1] + costs[0];
+                sev = m[max(i - 7, 0)] + costs[1];
+                tw = m[max(i - 30, 0)] + costs[2];
+                m[i] = min(min(one, sev), tw);
+            }
+            else {
+                m[i] = m[i - 1];
+            }
         }
-        mem[amount] = mn;
-        return mn;
+        
+        return m[days[sz(days) - 1]];
+    }
+
+    bool isVacation(vector<int>& days, int day) {
+        int i;
+        frn(i, sz(days))
+            if (days[i] == day)
+                return true;
+        return false;
     }
 };
 int main() {
     Solution sol;
-    vector<int> d = { 1,4,6,7,8,20 };
-    vector<int> c = { 2,7,15 };
+    vector<int> d = { 1,2,3,4,6,8,9,10,13,14,16,17,19,21,24,26,27,28,29 };
+    vector<int> c = { 3,14,50 };
     cout << sol.mincostTickets(d, c);
     return 0;
 }
