@@ -41,67 +41,38 @@ using namespace std;
 typedef long long Long;
 
 const int maxn = 1e9 + 10;
-vector<int>v;
-int n;
+vector<vector<char>>v;
 
-int lowerBound(int a) {
-	int left = 0, right = n - 1, mid;
+class Solution {
+public:
+    int solution(vector<int> &A){
+        map<int, int>mp;
+        int res, i, j=1;
+        sort(li(A));
 
-	if (a > v[right])
-		return n;
+        frn(i, sz(A))
+            mp[A[i]] = 1;
 
-	while (left < right) {
-		mid = (left + right) / 2;
+        frn(i, sz(mp)){
+            if(mp.find(j) == mp.end())
+                return j;
+            j++;
+        }
 
-		if (a <= v[mid])
-			right = mid;
-		else
-			left = mid + 1;
-	}
-
-	return left;
-}
-
-int upperBound(int a) {
-	int left = 1, right = n, mid;
-
-	if (a < v[0])
-		return 0;
-
-	while (left < right) {
-		mid = (left + right) / 2;
-
-		if (a >= v[mid])
-			left = mid + 1;
-		else
-			right = mid;
-	}
-
-	return left;
-}
+        return j;
+    }
+};
 
 int main()
 {
 	ios_base::sync_with_stdio(0);
 #ifdef localhost
-	freopen("D://input.txt", "r", stdin);
-	//freopen("D://output.txt","w",stdout);
+	freopen("E://input.txt", "r", stdin);
+	//freopen("E://output.txt","w",stdout);
 #endif
-	int i, j, a;
+	Solution sol;
 
-	cin >> n;
-	v.resize(n);
-
-	frn(i, n)
-		cin >> v[i];
-
-	sort(li(v));
-
-	cin >> a;
-
-	cout << "Lower bound: " << lowerBound(a) << " original: " << lower_bound(li(v), a) - v.begin() <<  endl;
-	cout << "Upper bound: " << upperBound(a) << " original: " << upper_bound(li(v), a) - v.begin() << endl;
-
+	cout << sol.solution(in);
 
 	//cin >> n;
 	return 0;

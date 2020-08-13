@@ -25,7 +25,7 @@ LANG: C++
 using namespace std;
 
 const int maxn = 2e5 + 10;
-typedef __int64 Long;
+typedef long long Long;
 vector<int> holder;
 
 int main()
@@ -39,7 +39,8 @@ int main()
 	holder.resize(27);
 
 	string h,n;
-	cin >> h >> n;
+	h = "asdf";
+	n = "df";
 
 	for (int i = 0; i < n.length(); i++) {
 		holder[n.at(i) % 96]++;

@@ -92,6 +92,18 @@ pair<int, int> fiboNthLinearTimeWithoutMemo(int n) {
 	return make_pair(r.first + r.second, r.first);
 }
 
+int fiboWithLoop(int n){
+    int i;
+    int a=0, b=1, tot;
+    frn(i,n){
+        c++;
+        tot = a + b;
+        a = b;
+        b = tot;
+    }
+    return a;
+}
+
 int main()
 {
 	ios_base::sync_with_stdio(0);
@@ -101,20 +113,25 @@ int main()
 #endif
 	int n, i, j;
 
-	cin >> n;
+	n = 5;
 
-	cout << "Without memorization, nth value " << fiboNth(n);
-	cout<< " with iteration: "<< c << "\n";
-
-	c = 0;
-
-	cout << "With memorization, nth value " << fiboNthWithMemo(n);
-	cout << " with iteration: " << c << "\n";
+	cout << "Without memorization, " << n <<"th value " << fiboNth(n);
+	cout<< " total iteration: "<< c << "\n";
 
 	c = 0;
 
-	cout << "Without memorization, nth value " << fiboNthLinearTimeWithoutMemo(n).first;
-	cout << " with iteration: " << c << "\n";
+	cout << "With memorization,  " << n <<"th value " << fiboNthWithMemo(n);
+	cout << " total iteration: " << c << "\n";
+
+	c = 0;
+
+	cout << "Without memorization,  " << n <<"th value " << fiboNthLinearTimeWithoutMemo(n).first;
+	cout << " total iteration: " << c << "\n";
+
+    c = 0;
+
+    cout << "With loop,  " << n <<"th value " << fiboWithLoop(n);
+    cout << " total iteration: " << c << "\n";
 
 	//fiboShowTillNthWithMemo(n);
 

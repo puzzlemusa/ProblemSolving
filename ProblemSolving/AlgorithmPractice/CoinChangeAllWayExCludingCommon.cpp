@@ -24,6 +24,15 @@ LANG: C++
 
 using namespace std;
 
+#define frn(i,n) for(i=0;i<n;i++)
+#define frN(i,n) for(i=1;i<=n;i++)
+#define frr(i,n) for(i=n-1;i>=0;i--)
+#define frv(i,a,n) for(i=a;i<n;i++)
+#define frl(i,v) for(;i!=v.end();++i)
+#define li(v) v.begin(), v.end()
+#define sz(v) ((int)v.size())
+#define emt(v) v.empty()
+
 const int maxn = 2e5 + 10;
 vector<long> coins;
 vector<int> v;
@@ -78,6 +87,22 @@ int ShowChanges(int a, int i) {
 	return result;
 }
 
+int coinChangeWithLoop(vector<int>v, int money){
+    int i, j;
+    vector<int>totVal(money+1, 0);
+    totVal[0]=1;
+    frv(i,1,money+1){
+        int c = 0;
+        frn(j, sz(v)){
+            if(v[j]<=i)
+                c += totVal[i-v[j]];
+        }
+        totVal[i] = c;
+    }
+
+    return totVal[money];
+}
+
 int main()
 {
 	ios_base::sync_with_stdio(0);
@@ -86,13 +111,9 @@ int main()
 	//freopen("E://output.txt","w",stdout);
 #endif
 
-	long n, a;
-	cin >> a >> n;
-	coins.resize(n);
-
-	for (long i = 0; i < n; i++) {
-		cin >> coins[i];
-	}
+	long a;
+	coins = {1,3,5};
+	a = 20;
 
 	cout << coinChangeLessComplexity(a, 0) << "\n";
 	ShowChanges(a, 0);

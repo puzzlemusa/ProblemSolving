@@ -37,9 +37,8 @@ using namespace std;
 #define emt(v) v.empty()
 #define SET(v,a) memset(v,a,sizeof(v))
 
-typedef __int64 Long;
+typedef long long Long;
 const int maxn = 1e9 + 10;
-vector<int>v;
 
 void swap(string &s, int x, int y)
 {
@@ -49,18 +48,45 @@ void swap(string &s, int x, int y)
 	s.at(y) = temp;
 }
 
-void permutation(string s, int start, int length) {
+void permutation(string s, int start) {
 	int i;
 
-	if (start == length)
+	if (start == sz(s))
 		cout << s << endl;
 	else {
-		frv(i, start, length + 1) {
-			swap(s, start, i);
-			permutation(s, start + 1, length);
-			//swap(ch + start, ch + i);
+		frv(i, start, sz(s)) {
+            if(i != start)
+			    swap(s, start, i);
+			permutation(s, start + 1);
 		}
 	}
+}
+
+void print(vector<int>v){
+    int i;
+    frn(i, sz(v)){
+        cout << v[i] << " ";
+    }
+    cout << endl;
+}
+
+void swap(vector<int>&v, int i, int j){
+    int temp = v[i];
+    v[i] = v[j];
+    v[j] = temp;
+}
+
+void permutation(vector<int> v, int start){
+    int i;
+    if(start == sz(v))
+        print(v);
+    else{
+        frv(i, start, sz(v)){
+            if(i != start)
+                swap(v, start, i);
+            permutation(v, start + 1);
+        }
+    }
 }
 
 int main()
@@ -70,12 +96,11 @@ int main()
 	//freopen("D://input.txt", "r", stdin);
 	//freopen("D://output.txt","w",stdout);
 #endif
-	int n, i, j;
-	string s;
+	string s="asd";
+	permutation(s, 0);
 
-	cin >> s;
-
-	permutation(s, 0, sz(s) - 1);
+	vector<int> v = {1,2,3};
+	permutation(v, 0);
 
 	//cin >> n;
 	return 0;

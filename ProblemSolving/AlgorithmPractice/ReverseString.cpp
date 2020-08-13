@@ -4,7 +4,6 @@
 using namespace std;
 
 string reverse(string s) {
-
 	if (s.size() == 1)
 		return s;
 
@@ -13,9 +12,7 @@ string reverse(string s) {
 }
 
 int main() {
-	string s;
-	cin >> s;
-
+	string s = "asd";
 	cout << reverse(s);
 	return 0;
 }

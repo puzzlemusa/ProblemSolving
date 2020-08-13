@@ -5,7 +5,7 @@ LANG: C++
 */
 
 #include <algorithm> 
-#include <cctype> 
+#include <cctype>
 #include <cmath> 
 #include <cstdio> 
 #include <cstdlib> 
@@ -24,8 +24,17 @@ LANG: C++
 
 using namespace std;
 
+#define frn(i,n) for(i=0;i<n;i++)
+#define frN(i,n) for(i=1;i<=n;i++)
+#define frr(i,n) for(i=n-1;i>=0;i--)
+#define frv(i,a,n) for(i=a;i<n;i++)
+#define frl(i,v) for(;i!=v.end();++i)
+#define li(v) v.begin(), v.end()
+#define sz(v) ((int)v.size())
+#define emt(v) v.empty()
+
 const int maxn = 2e5 + 10;
-typedef __int64 Long;
+typedef long long Long;
 vector<int> coins;
 map<int, pair<int, int>> memory;
 vector<int>bestWay;
@@ -51,6 +60,23 @@ int coinChange(int a) {
 	return mn;
 }
 
+int coinChangeWithLoop(vector<int>v, int money){
+    int i, j;
+    vector<int>minVal(money+1, 0);
+
+    frv(i,1,money+1){
+        int mn = INT_MAX;
+        frn(j, sz(v)){
+            int c = INT_MAX;
+            if(v[j]<=i)
+                c = minVal[i-v[j]] + 1;
+            mn = min(mn, c);
+        }
+        minVal[i] = mn;
+    }
+
+    return minVal[money];
+}
 
 int main()
 {
@@ -61,15 +87,10 @@ int main()
 #endif
 
 	int n, a;
-	cin >> n;
-	coins.resize(n);
+	coins = {1,3,5};
+	a = 20;
 
-	for (int i = 0; i < n; i++) {
-		cin >> coins[i];
-	}
-
-	cin >> a;
-
+	cout << coinChangeWithLoop(coins, a)<< endl;
 	bestWay.resize(coinChange(a));
 
 	for (int i = bestWay.size() - 1; i >= 0; i--) {

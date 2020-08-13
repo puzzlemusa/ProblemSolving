@@ -25,9 +25,8 @@ LANG: C++
 using namespace std;
 
 const int maxn = 2e5 + 10;
-typedef __int64 Long;
+typedef long long Long;
 int prime = 31;
-vector<Long> textHash;
 
 int main()
 {
@@ -37,8 +36,9 @@ int main()
 	//freopen("E://output.txt","w",stdout);
 #endif
 	string text, pattern;
-
-	cin >> text >> pattern;
+    text = "dfasdfrdf";
+    pattern = "df";
+    vector<Long> textHash;
 	textHash.resize(text.size());
 
 	Long patternHash = 0;

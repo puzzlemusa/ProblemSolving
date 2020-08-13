@@ -25,7 +25,7 @@ LANG: C++
 using namespace std;
 
 const int maxn = 2e5 + 10;
-typedef __int64 Long;
+typedef long long Long;
 vector<int> holder;
 int k = 0;
 
@@ -56,7 +56,8 @@ int main()
 	holder.resize(27);
 
 	string h, n;
-	cin >> h >> n;
+    h = "asds";
+    n = "sds";
 
 	for (int i = 0; i < n.length(); i++) {
 		add(n, i);

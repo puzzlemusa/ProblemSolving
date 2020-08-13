@@ -34,7 +34,7 @@ using namespace std;
 #define emt(v) v.empty()
 
 const int maxn = 1e5 + 10;
-typedef __int64 Long;
+typedef long long Long;
 vector<int>adj[maxn];
 
 struct Node {
