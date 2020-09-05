@@ -40,43 +40,20 @@ using namespace std;
 
 typedef long long Long;
 
+const int maxn = 2147483647;
 vector<int>v;
 
 class Solution {
 public:
-	string longestPalindrome(string s) {
-		if(sz(s) < 2)
-			return s;
-
-		string r;
-		int mxl = 0;
-
-		int i;
-		frn(i, sz(s)) {
-			if (isPal(s, i - mxl - 1, i)) {
-				r = s.substr(i - mxl - 1, mxl + 2);
-				mxl += 2;
-			}
-
-			else if (isPal(s, i - mxl, i)) {
-				r = s.substr(i - mxl, mxl + 1);
-				mxl++;
-			}
-		}
-
-		return r;
-	}
-
-    bool isPal(string s, int b, int e) {
-        if (b < 0)
-            return false;
-
-        s = s.substr(b, e - b + 1);
-
-        string s1 = s;
-        reverse(li(s1));
-
-        return s == s1;
+    bool containsNearbyAlmostDuplicate(vector<int>& nums, int k, int t) {
+        set<int> window;
+        for (int i = 0; i < nums.size(); i++) {
+            if (i > k) window.erase(nums[i-k-1]);
+            auto pos = window.lower_bound(nums[i] - t);
+            if (pos != window.end() && *pos - nums[i] <= t) return true;
+            window.insert(nums[i]);
+        }
+        return false;
     }
 };
 
@@ -84,13 +61,13 @@ int main()
 {
 	ios_base::sync_with_stdio(0);
 #ifdef localhost
-	freopen("E://input.txt", "r", stdin);
-	//freopen("E://output.txt","w",stdout);
+	//freopen("E://input.txt", "r", stdin);
+	//freopen("E://output.txt","w", stdout);
 #endif
 	Solution sol;
-	int n, i, j;
+	vector<int>v = {1,5,9,1,5,9};
+	cout << sol.containsNearbyAlmostDuplicate(v, 2, 3);
 
-	cout << sol.longestPalindrome("cadabb");
 
 	//cin >> n;
 	return 0;

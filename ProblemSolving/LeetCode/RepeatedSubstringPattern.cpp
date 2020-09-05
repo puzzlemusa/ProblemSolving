@@ -40,43 +40,22 @@ using namespace std;
 
 typedef long long Long;
 
+const int maxn = 2147483647;
 vector<int>v;
 
 class Solution {
 public:
-	string longestPalindrome(string s) {
-		if(sz(s) < 2)
-			return s;
+    bool repeatedSubstringPattern(string s) {
+        string s1 = s + s;
+        s1 = s1.substr(1, sz(s1)-1);
+        s1 = s1.substr(0, sz(s1)-1);
 
-		string r;
-		int mxl = 0;
+        size_t found = s1.find(s);
 
-		int i;
-		frn(i, sz(s)) {
-			if (isPal(s, i - mxl - 1, i)) {
-				r = s.substr(i - mxl - 1, mxl + 2);
-				mxl += 2;
-			}
-
-			else if (isPal(s, i - mxl, i)) {
-				r = s.substr(i - mxl, mxl + 1);
-				mxl++;
-			}
-		}
-
-		return r;
-	}
-
-    bool isPal(string s, int b, int e) {
-        if (b < 0)
+        if(found != std::string::npos)
+            return true;
+        else
             return false;
-
-        s = s.substr(b, e - b + 1);
-
-        string s1 = s;
-        reverse(li(s1));
-
-        return s == s1;
     }
 };
 
@@ -84,13 +63,13 @@ int main()
 {
 	ios_base::sync_with_stdio(0);
 #ifdef localhost
-	freopen("E://input.txt", "r", stdin);
-	//freopen("E://output.txt","w",stdout);
+	//freopen("E://input.txt", "r", stdin);
+	//freopen("E://output.txt","w", stdout);
 #endif
 	Solution sol;
-	int n, i, j;
+	vector<int>v = {1,5,9,1,5,9};
+	cout << sol.repeatedSubstringPattern("abab");
 
-	cout << sol.longestPalindrome("cadabb");
 
 	//cin >> n;
 	return 0;
