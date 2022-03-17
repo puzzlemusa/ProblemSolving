@@ -3,4 +3,4 @@ project(ProblemSolving)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(ProblemSolving AlgorithmPractice/ReversedPolishNotation.cpp)
+add_executable(ProblemSolving LeetCode/Atoi.cpp)
