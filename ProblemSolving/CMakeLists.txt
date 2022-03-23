@@ -3,4 +3,4 @@ project(ProblemSolving)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(ProblemSolving LeetCode/RotateArray.cpp)
+add_executable(ProblemSolving LeetCode/TwoSumIIInputArrayIsSorted.cpp)
