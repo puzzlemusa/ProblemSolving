@@ -42,35 +42,29 @@ const int maxn = 1e9 + 10;
 
 class Solution {
 public:
-    void print(vector<int> v, int k) {
-        int i;
-        frn(i, k) {
-            cout << v[i] << " ";
-        }
-        cout << endl;
-    }
 
-    void swap(vector<int> &v, int i, int j) {
-        int temp = v[i];
-        v[i] = v[j];
-        v[j] = temp;
-    }
-
-    void permutation(vector<int> v, int start, int k, vector<vector<int>> &res) {
+    //faster when nCn, skip n iteration.
+    void permutation(vector<int> data, vector<int> temp, int start, int k, int index, vector<vector<int>> &res) {
         int i;
-        if (start == k) {
-            print(v, k);
-            vector<int> r;
-            for (int j = 0; j < k; j++) {
-                r.push_back(v[j]);
-            }
-            res.push_back(r);
+        if (index == k) {
+            res.push_back(temp);
         } else {
-            int max = min(end, end + 1 - data.length + index);
-            for (i = start; i < v.size() - start; i++) {
-                if (i != start)
-                    swap(v, start, i);
-                permutation(v, start + 1, k, res);
+            for (i = start; i < data.size() && data.size() - i + 1 < k - index; i++) {
+                temp[index] = data[i];
+                permutation(data, temp, i + 1, k, index + 1, res);
+            }
+        }
+    }
+
+    // slower
+    void permutation1(vector<int> data, vector<int> temp, int start, int k, int index, vector<vector<int>> &res) {
+        int i;
+        if (index == k) {
+            res.push_back(temp);
+        } else {
+            for (i = start; i < data.size() ; i++) {
+                temp[index] = data[i];
+                permutation1(data, temp, i + 1, k, index + 1, res);
             }
         }
     }
@@ -80,7 +74,8 @@ public:
         vector<vector<int>> res;
         for (int i = 1; i <= n; i++)
             nums.push_back(i);
-        permutation(nums, 0, k, res);
+        vector<int> temp(k);
+        permutation(nums, temp, 0, k, 0, res);
         return res;
     }
 };
@@ -93,7 +88,7 @@ int main() {
 #endif
 
     Solution sol;
-    vector<vector<int>> result = sol.combine(4, 2);
+    vector<vector<int>> result = sol.combine(4, 4);
     //cin >> n;
     return 0;
 }
