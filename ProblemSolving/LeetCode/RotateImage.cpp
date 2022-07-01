@@ -46,8 +46,8 @@ public:
     void rotate(vector<vector<int>> &matrix) {
         int temp;
         int n = matrix.size();
-        for (int i = 0; i < (n + 1) / 2; i++) {
-            for (int j = i; j < ((n + 1) / 2) - 1; j++) {
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i; j < n - 1 - i; j++) {
                 temp = matrix[i][j];
                 matrix[i][j] = matrix[n - 1 - j][i];
                 matrix[n - 1 - j][i] = matrix[n - 1 - i][n - 1 - j];
@@ -77,6 +77,9 @@ int main() {
     vector<vector<int>> d = {{1, 2},
                              {3, 4}};
     sol.rotate(a);
+    sol.rotate(b);
+    sol.rotate(c);
+    sol.rotate(d);
     //cin >> n;
     return 0;
 }
