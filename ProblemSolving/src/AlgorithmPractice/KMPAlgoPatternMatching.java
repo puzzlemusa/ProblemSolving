@@ -3,6 +3,7 @@ package AlgorithmPractice;
 public class KMPAlgoPatternMatching {
 
     public static void main(String[] args) {
+        System.out.println(strStr("abababaababc", "ababc"));
         System.out.println(strStr("AAAAABAAABA", "AAAA"));
         System.out.println(strStr("asdfsadfdssdf", "acabacacd"));
         System.out.println(strStr("hello", "ll"));
@@ -36,7 +37,7 @@ public class KMPAlgoPatternMatching {
             }
         }
 
-        return 0-1;
+        return -1;
     }
 
     public static int[] makeLPS(String needle) {
