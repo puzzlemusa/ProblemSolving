@@ -15,6 +15,13 @@ public class IsomorphicStrings {
         System.out.println(isIsomorphic1("foo", "bar"));
         System.out.println(isIsomorphic1("paper", "title"));
         System.out.println(isIsomorphic1("badc", "baba"));
+        System.out.println(isIsomorphic1("babg", "cabg"));
+        System.out.println("----------------------------");
+        System.out.println(isIsomorphic2("egg", "add"));
+        System.out.println(isIsomorphic2("foo", "bar"));
+        System.out.println(isIsomorphic2("paper", "title"));
+        System.out.println(isIsomorphic2("badc", "baba"));
+        System.out.println(isIsomorphic2("babg", "cabg"));
     }
 
     public static boolean isIsomorphic1(String s, String t) {
@@ -31,9 +38,7 @@ public class IsomorphicStrings {
             if (StoT[c1] == -1 && TtoS[c2] == -1) {
                 StoT[c1] = c2;
                 TtoS[c2] = c1;
-            }
-
-            else if (!(StoT[c1] == c2 && TtoS[c2] == c1)) {
+            } else if (!(StoT[c1] == c2 && TtoS[c2] == c1)) {
                 return false;
             }
         }
@@ -60,5 +65,22 @@ public class IsomorphicStrings {
 
     public static boolean isIsomorphic(String s, String t) {
         return transformString(s).equals(transformString(t));
+    }
+
+    public static boolean isIsomorphic2(String s, String t) {
+        Map<Character, Character> sToT = new HashMap<>();
+        Map<Character, Character> TToS = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            if (sToT.get(s.charAt(i)) == null) {
+                sToT.put(s.charAt(i), t.charAt(i));
+            } else if (sToT.get(s.charAt(i)) != t.charAt(i))
+                return false;
+            if (TToS.get(t.charAt(i)) == null) {
+                TToS.put(t.charAt(i), s.charAt(i));
+            } else if (TToS.get(t.charAt(i)) != s.charAt(i))
+                return false;
+        }
+
+        return true;
     }
 }
