@@ -28,7 +28,6 @@ public class Permutations {
                 swap(nums, i, start);
                 compute(nums, start + 1, result);
                 swap(nums, i, start);
-
             }
         }
     }
