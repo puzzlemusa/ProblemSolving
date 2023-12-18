@@ -55,6 +55,9 @@ public class LongestConsecutiveSequence {
                 }
                 mx = Math.max(mx, currLen);
             }
+            if (mx > nums.length / 2) {
+                break;
+            }
         }
 
         return mx;
