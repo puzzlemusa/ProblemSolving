@@ -41,6 +41,7 @@ public class SubtreeOfAnotherTree {
         System.out.println(isSubtree(three, four));
     }
 
+    // Complexity: O(m*n)
     public static boolean isSubtree(TreeNode root, TreeNode subRoot) {
         if(root == null){
             return false;
