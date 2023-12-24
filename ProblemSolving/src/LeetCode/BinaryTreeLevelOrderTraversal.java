@@ -51,6 +51,7 @@ public class BinaryTreeLevelOrderTraversal {
         levelOrder(one);
     }
 
+    // Complexity: O(n)
     public static List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
         Queue<TreeNode> Q = new LinkedList<>();
