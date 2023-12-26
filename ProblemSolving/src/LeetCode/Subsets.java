@@ -9,6 +9,7 @@ public class Subsets {
     public static void main(String[] args) {
         System.out.println(subsets(new int[]{1, 2, 3}));
         System.out.println(subsets1(new int[]{1, 2, 3}));
+        System.out.println(subsets2(new int[]{1, 2, 3}));
     }
 
     public static List<List<Integer>> subsets1(int[] nums) {
@@ -47,5 +48,24 @@ public class Subsets {
             output.add(curr);
         }
         return output;
+    }
+
+    // Complexity O(2^n)
+    public static List<List<Integer>> subsets2(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> curr = new ArrayList<>();
+        find2(0, nums, result, curr);
+        return result;
+    }
+
+    private static void find2(int start, int[] nums, List<List<Integer>> result, List<Integer> curr) {
+        if (start >= nums.length) {
+            result.add(new ArrayList<>(curr));
+        } else {
+            curr.add(nums[start]);
+            find2(start + 1, nums, result, curr);
+            curr.remove(curr.size() - 1);
+            find2(start + 1, nums, result, curr);
+        }
     }
 }
