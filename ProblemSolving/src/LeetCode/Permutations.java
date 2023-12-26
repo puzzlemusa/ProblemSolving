@@ -1,17 +1,16 @@
 package LeetCode;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Permutations {
     public static void main(String[] args) {
         System.out.println(permute(new int[]{1, 2, 3}));
         System.out.println(permute(new int[]{1}));
-        System.out.println(permute(new int[]{1,2}));
+        System.out.println(permute(new int[]{1, 2}));
     }
 
+    // Complexity O(n!)
     public static List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> result = new ArrayList();
 
@@ -22,7 +21,11 @@ public class Permutations {
 
     public static void compute(int[] nums, int start, List<List<Integer>> result) {
         if (start == nums.length - 1) {
-            result.add(Arrays.stream(nums).boxed().collect(Collectors.toList()));
+            List<Integer> list = new ArrayList();
+            for (int i = 0; i < nums.length; i++) {
+                list.add(nums[i]);
+            }
+            result.add(list);
         } else {
             for (int i = start; i < nums.length; i++) {
                 swap(nums, i, start);
