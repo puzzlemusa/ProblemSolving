@@ -9,14 +9,11 @@ public class WordSearch {
         System.out.println(exist(new char[][]{{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}}, "ABCB"));
     }
 
-    private static boolean[][] visited;
-
+    // Time complexity: O(m*n*4^s), Space complexity: O(s) s= word.length()
     public static boolean exist(char[][] board, String word) {
-        visited = new boolean[board.length][board[0].length];
-
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
-                if ((word.charAt(0) == board[i][j]) && search(board, word, i, j, 0)) {
+                if (search(board, word, i, j, 0)) {
                     return true;
                 }
             }
@@ -30,19 +27,19 @@ public class WordSearch {
             return true;
         }
 
-        if (i >= board.length || i < 0 || j >= board[i].length || j < 0 || board[i][j] != word.charAt(index) || visited[i][j]) {
+        if (i >= board.length || i < 0 || j >= board[i].length || j < 0 || board[i][j] != word.charAt(index)) {
             return false;
         }
 
-        visited[i][j] = true;
-        if (search(board, word, i - 1, j, index + 1) ||
-                search(board, word, i + 1, j, index + 1) ||
-                search(board, word, i, j - 1, index + 1) ||
-                search(board, word, i, j + 1, index + 1)) {
-            return true;
+        boolean exist = false;
+        if (board[i][j] == word.charAt(index)) {
+            board[i][j] += 100;
+            exist = search(board, word, i + 1, j, index + 1) ||
+                    search(board, word, i, j + 1, index + 1) ||
+                    search(board, word, i - 1, j, index + 1) ||
+                    search(board, word, i, j - 1, index + 1);
+            board[i][j] -= 100;
         }
-
-        visited[i][j] = false;
-        return false;
+        return exist;
     }
 }
