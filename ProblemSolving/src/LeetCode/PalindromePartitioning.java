@@ -12,6 +12,7 @@ public class PalindromePartitioning {
         System.out.println(partition("aaa"));
     }
 
+    // Time complexity: O(2^n), Space complexity: O(n)
     public static List<List<String>> partition(String s) {
         List<List<String>> res = new ArrayList<>();
         dfs(res, s, new ArrayList<>(), 0);
@@ -32,11 +33,13 @@ public class PalindromePartitioning {
     }
 
     private static boolean isPalindrome(String s, int start, int end) {
-        while (start < end) {
-            if (s.charAt(start++) != s.charAt(end--)) {
-                return false;
-            }
-        }
-        return true;
+//        while (start < end) {
+//            if (s.charAt(start++) != s.charAt(end--)) {
+//                return false;
+//            }
+//        }
+//        return true;
+        String sub = s.substring(start, end + 1);
+        return sub.equals(new StringBuilder(sub).reverse().toString());
     }
 }

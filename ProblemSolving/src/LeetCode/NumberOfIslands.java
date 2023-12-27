@@ -21,6 +21,7 @@ public class NumberOfIslands {
         System.out.println(numIslands(grid3));
     }
 
+    // Time complexity: O(n*m), space complexity: O(n*m)
     public static int numIslands(char[][] grid) {
         int total = 0;
         for (int i = 0; i < grid.length; i++) {
