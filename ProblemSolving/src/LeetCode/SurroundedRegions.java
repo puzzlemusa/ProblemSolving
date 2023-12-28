@@ -5,6 +5,8 @@ import java.util.Arrays;
 
 public class SurroundedRegions {
 
+    static int[][] dir = new int[][]{{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+
     public static void main(String[] args) {
         char[][] chars = {
                 {'X', 'X', 'X', 'X'},
@@ -43,7 +45,7 @@ public class SurroundedRegions {
 
         int n = board[0].length;
 
-        //Moving over firts and last column
+        //Moving over first and last column
         for (int i = 0; i < m; i++) {
             if (board[i][0] == 'O')
                 DFS(board, i, 0);
