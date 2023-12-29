@@ -13,6 +13,7 @@ public class CourseSchedule2 {
         System.out.println(Arrays.toString(findOrder(1, new int[][]{})));
     }
 
+    // Time complexity: O(V + E), space complexity: O(V + E)
     public static int[] findOrder(int numCourses, int[][] prerequisites) {
         List<Integer>[] adj = new ArrayList[numCourses];
         int[] inDegree = new int[numCourses];
