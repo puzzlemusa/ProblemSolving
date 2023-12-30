@@ -70,4 +70,29 @@ public class MergeIntervals {
         }
         return merged.toArray(new int[merged.size()][]);
     }
+
+    // Time complexity : O(nlogn), space complexity : O(n)
+    public static int[][] merge2(int[][] intervals) {
+        Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
+        List<int[]> il = new ArrayList<>();
+        Collections.addAll(il, intervals);
+
+        for(int i=1; i<il.size(); i++){
+            int[] int1 = il.get(i-1);
+            int[] int2 = il.get(i);
+
+            if(int1[1] >= int2[0]){
+                int[] mergedInt = new int[] {
+                        Math.min(int1[0], int2[0]),
+                        Math.max(int1[1], int2[1])
+                };
+                il.remove(int1);
+                il.remove(int2);
+                il.add(i-1, mergedInt);
+                i--;
+            }
+        }
+
+        return il.toArray(new int [il.size()][]);
+    }
 }
