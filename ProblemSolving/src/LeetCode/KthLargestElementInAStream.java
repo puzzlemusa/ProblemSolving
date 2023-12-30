@@ -1,6 +1,7 @@
 package LeetCode;
 
 
+import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
@@ -20,7 +21,7 @@ public class KthLargestElementInAStream {
 
     // Time complexity: O(n + nlogk), space complexity: O(k)
     public static void KthLargest(int k, int[] nums) {
-        q = new PriorityQueue<>();
+        q = new PriorityQueue<>(Comparator.reverseOrder());
         kVal = k;
         for (int num : nums) {
             add(num);
