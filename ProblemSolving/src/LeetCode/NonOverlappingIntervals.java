@@ -12,6 +12,7 @@ public class NonOverlappingIntervals {
         System.out.println(eraseOverlapIntervals(new int[][]{{1, 2}, {2, 3}}));
     }
 
+    // Time complexity: O(nlogn), Space complexity: O(1)
     public static int eraseOverlapIntervals(int[][] intervals) {
         Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
 
