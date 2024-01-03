@@ -10,6 +10,7 @@ public class ClimbingStairs {
         System.out.println(climbStairs(45));
     }
 
+    // Time complexity: O(n^2) | Space complexity: O(n)
     public static int climbStairs(int n) {
         int[] mem = new int[46];
         Arrays.fill(mem, -1);
