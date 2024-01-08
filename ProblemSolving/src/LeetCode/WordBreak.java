@@ -21,6 +21,7 @@ public class WordBreak {
 
     private static Boolean[] mem;
 
+    // Time complexity: O(n), Space complexity: O(n)
     public static boolean wordBreak(String s, List<String> wordDict) {
         mem = new Boolean[s.length()];
         return find(s, new HashSet<>(wordDict), 0);
