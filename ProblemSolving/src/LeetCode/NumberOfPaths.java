@@ -37,7 +37,6 @@ public class NumberOfPaths {
             return 1;
         }
         int[][] dp = new int[n][n];
-        int r = dfs1(1, 0, n, dp);
         return dfs1(1, 0, n, dp);
     }
 
