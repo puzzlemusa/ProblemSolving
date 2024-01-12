@@ -4,11 +4,12 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
+// Find MST(Minimum Spanning Tree)
 public class PrimsAlgorithm {
 
     public static void main(String[] args) {
         System.out.println(minCostConnectPoints(new int[][]{{0, 0}, {2, 2}, {3, 10}, {5, 2}, {7, 0}}));
-        System.out.println(minCostConnectPoints(new int[][]{{3,12},{-2,5},{-4,1}}));
+        System.out.println(minCostConnectPoints(new int[][]{{3, 12}, {-2, 5}, {-4, 1}}));
     }
 
     // https://leetcode.com/problems/min-cost-to-connect-all-points/description/
@@ -24,7 +25,7 @@ public class PrimsAlgorithm {
             int[] values = minHeap.poll();
             int index = values[0];
             int cost = values[1];
-            if(seen[index]) {
+            if (seen[index]) {
                 continue;
             }
             added++;

@@ -33,6 +33,22 @@ public class CyclicSort {
         return nums.length;
     }
 
+    public static int findDuplicateNumber(int[] nums) {
+        int i = 0;
+        while (i < nums.length) {
+            if (nums[i] != nums[nums[i] - 1])
+                swap(nums, i, nums[i] - 1);
+            else
+                i++;
+        }
+
+        for (i = 0; i < nums.length; i++)
+            if (nums[i] != i + 1)
+                return nums[i];
+
+        return -1;
+    }
+
     public static List<Integer> findAllMissingNumbers(int[] nums) {
         int i = 0;
         while (i < nums.length) {
@@ -60,6 +76,7 @@ public class CyclicSort {
         int[] a = new int[]{3, 1, 5, 4, 2};
         cyclicSort(a);
         System.out.println(Arrays.toString(a));
+        System.out.println(findDuplicateNumber(new int[]{4, 2, 3, 5, 5, 1}));
         System.out.println(findMissingNumber(new int[]{4, 0, 3, 1}));
         System.out.println(findAllMissingNumbers(new int[]{2, 3, 1, 8, 2, 3, 5, 1}));
     }

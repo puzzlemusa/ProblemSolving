@@ -21,7 +21,7 @@ public class DijkstrasAlgorithm {
         boolean[] seen = new boolean[n + 1];
         Queue<int[]> minHeap = new PriorityQueue<>(Comparator.comparingInt(a -> a[1]));
         minHeap.add(new int[]{k, 0});
-        int delay = 0;
+        int delay = 0;//problem specific variable, not needed for Dijkstra's algorithm
         while (!minHeap.isEmpty()) {
             int[] values = minHeap.poll();
             int node = values[0];
