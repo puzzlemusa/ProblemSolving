@@ -10,6 +10,7 @@ public class MergeSort {
         System.out.println(Arrays.toString(a));
     }
 
+    // Time complexity: O(nlogn), space complexity: O(n)
     public static void mergeSort(int[] nums, int size) {
         if (size < 2) {
             return;
@@ -29,21 +30,21 @@ public class MergeSort {
         merge(nums, leftSide, rightSide, mid, size - mid);
     }
 
-    private static void merge(int[] nums, int[] leftSide, int[] rightSide, int left, int right) {
+    private static void merge(int[] nums, int[] leftSide, int[] rightSide, int sizeLeft, int sizeRight) {
         int i = 0;
         int j = 0;
         int k = 0;
-        while (i < left && j < right) {
+        while (i < sizeLeft && j < sizeRight) {
             if (leftSide[i] <= rightSide[j]) {
                 nums[k++] = leftSide[i++];
             } else {
                 nums[k++] = rightSide[j++];
             }
         }
-        while (i<left){
+        while (i<sizeLeft){
             nums[k++] = leftSide[i++];
         }
-        while (j<right){
+        while (j<sizeRight){
             nums[k++] = rightSide[j++];
         }
     }

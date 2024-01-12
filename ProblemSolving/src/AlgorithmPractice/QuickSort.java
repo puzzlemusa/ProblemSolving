@@ -18,17 +18,16 @@ public class QuickSort {
         }
     }
 
-    private static int partition(int[] nums, int low, int high) {
-        int pivot = nums[high];
-        int i = low - 1;
-        for (int j = low; j <= high - 1; j++) {
-            if (nums[j] < pivot) {
-                i++;
-                swap(nums, i, j);
+    private static int partition(int[] nums, int left, int right) {
+        int pivot = nums[right];
+        for (int i = left; i <= right; i++) {
+            if (nums[i] < pivot) {
+                swap(nums, i, left);
+                left++;
             }
         }
-        swap(nums, i + 1, high);
-        return i + 1;
+        swap(nums, left, right);
+        return left;
     }
 
     private static void swap(int[] nums, int index1, int index2) {
