@@ -28,26 +28,27 @@ public class AlienDictionary {
         return getString(ordering);
     }
 
-    private static boolean createEdges(String left, String right) {
-        int minLen = Math.min(left.length(), right.length());
+    private static boolean createEdges(String first, String second) {
+        int minLen = Math.min(first.length(), second.length());
 
         for (int i = 0; i < minLen; i++) {
-            char first = left.charAt(i), second = right.charAt(i);
+            char firstChar = first.charAt(i);
+            char secondChar = second.charAt(i);
 
-            if (first != second) {
-                Set<Character> edges = adjList.get(first);
-                edges.add(second);
-                adjList.put(first, edges);
+            if (firstChar != secondChar) {
+                Set<Character> edges = adjList.get(firstChar);
+                edges.add(secondChar);
+                adjList.put(firstChar, edges);
 
-                Set<Character> revEdges = revList.get(second);
-                revEdges.add(first);
-                revList.put(second, revEdges);
+                Set<Character> revEdges = revList.get(secondChar);
+                revEdges.add(firstChar);
+                revList.put(secondChar, revEdges);
 
                 return true;
             }
         }
 
-        return (left.length() <= right.length());
+        return (first.length() <= second.length());
     }
 
     private static void initialize(String[] words) {
