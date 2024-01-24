@@ -76,7 +76,7 @@ public class CyclicSort {
         int[] a = new int[]{3, 1, 5, 4, 2};
         cyclicSort(a);
         System.out.println(Arrays.toString(a));
-        System.out.println(findDuplicateNumber(new int[]{4, 2, 3, 5, 5, 1}));
+        System.out.println(findDuplicateNumber(new int[]{3,1,3,4,2}));
         System.out.println(findMissingNumber(new int[]{4, 0, 3, 1}));
         System.out.println(findAllMissingNumbers(new int[]{2, 3, 1, 8, 2, 3, 5, 1}));
     }
