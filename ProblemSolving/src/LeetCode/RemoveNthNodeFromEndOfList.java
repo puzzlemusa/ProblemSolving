@@ -3,23 +3,6 @@ package LeetCode;
 
 public class RemoveNthNodeFromEndOfList {
 
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
     public static void main(String[] args) {
         ListNode one = new ListNode(1);
         ListNode two = new ListNode(2);
@@ -35,12 +18,13 @@ public class RemoveNthNodeFromEndOfList {
         ListNode res = removeNthFromEnd(one, 4);
     }
 
+    // Time complexity: O(n), space complexity: O(1)
     public static ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode start = new ListNode(0);
         ListNode slow = start;
         ListNode fast = start;
         slow.next = head;
-        for (int i = 1; i <= n+1; i++) {
+        for (int i = 1; i <= n + 1; i++) {
             fast = fast.next;
         }
 
@@ -52,5 +36,53 @@ public class RemoveNthNodeFromEndOfList {
         slow.next = slow.next.next;
 
         return start.next;
+    }
+
+    // Time complexity: O(n), space complexity: O(1)
+    public ListNode removeNthFromEnd1(ListNode head, int n) {
+        if (head.next == null) {
+            return null;
+        }
+        ListNode pointer = head;
+        int total = 0;
+        while (pointer != null) {
+            pointer = pointer.next;
+            total++;
+        }
+
+        if (total == n) {
+            return head.next;
+        }
+
+        pointer = head;
+        int counter = 1;
+        while (counter < total - n) {
+            pointer = pointer.next;
+            counter++;
+        }
+        if (n == 1) {
+            pointer.next = null;
+        } else {
+            pointer.next = pointer.next.next;
+        }
+
+        return head;
+    }
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
     }
 }

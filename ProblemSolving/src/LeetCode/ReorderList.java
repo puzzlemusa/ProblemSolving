@@ -1,7 +1,7 @@
 package LeetCode;
 
 
-public class ReverseLinkedList {
+public class ReorderList {
 
     public static class ListNode {
         int val;
@@ -25,34 +25,43 @@ public class ReverseLinkedList {
         ListNode two = new ListNode(2);
         ListNode three = new ListNode(3);
         ListNode four = new ListNode(4);
+        ListNode five = new ListNode(5);
+        ListNode six = new ListNode(6);
 
+        //five.next = six;
+        four.next = five;
         three.next = four;
         two.next = three;
         one.next = two;
 
-        //ListNode result = reverseList(one);
-        ListNode result1 = reverseListRecursive(one);
-
-        System.out.println("asdf");
+        reorderList(one);
+        while (one != null){
+            System.out.println(one.val);
+            one = one.next;
+        }
     }
 
     // Time complexity: O(n), space complexity: O(n)
-    public static ListNode reverseList(ListNode head) {
-        ListNode result = null;
-        ListNode next = null;
-        while (head != null) {
-            next = head.next;
-            head.next = result;
-            result = head;
-            head = next;
+    public static void reorderList(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head.next;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
 
-        return result;
-    }
-
-    // Time complexity: O(n), space complexity: O(n)
-    public static ListNode reverseListRecursive(ListNode head) {
-        return reverse(head, null);
+        slow.next = reverse(slow.next, null);
+        ListNode p1 = head;
+        ListNode p2 = slow.next;
+        slow.next=null;
+        while(p2 != null) {
+            ListNode temp = p2.next;
+            p2.next = p1.next;
+            p1.next = p2;
+            p1 = p2.next;
+            p2 = temp;
+        }
     }
 
     private static ListNode reverse(ListNode head, ListNode prevNode) {

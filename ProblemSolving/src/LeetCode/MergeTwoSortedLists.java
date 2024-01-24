@@ -39,6 +39,7 @@ public class MergeTwoSortedLists {
         System.out.println("asdf");
     }
 
+    // Time complexity: O(n1 + n2), space complexity: O(1)
     public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         if (list1 == null)
             return list2;
