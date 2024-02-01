@@ -10,6 +10,7 @@ public class KokoEatingBananas {
         System.out.println(minEatingSpeed(new int[]{312884470}, 312884469));
     }
 
+    // Time complexity: O(nlogm), space complexity: O(1). n is the length of piles, m is the max value of piles
     public static int minEatingSpeed(int[] piles, int h) {
         int right = 0;
         int left = 1;
