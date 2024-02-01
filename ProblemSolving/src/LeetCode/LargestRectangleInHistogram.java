@@ -7,12 +7,12 @@ import java.util.Deque;
 public class LargestRectangleInHistogram {
 
     public static void main(String[] args) {
-        System.out.println(largestRectangleArea1(new int[]{2, 1, 5, 6, 2, 3}));
+        System.out.println(largestRectangleArea(new int[]{2, 1, 5, 6, 2, 3}));
         System.out.println(largestRectangleArea1(new int[]{2, 4}));
         System.out.println(largestRectangleArea1(new int[]{5, 4, 3, 2, 1}));
     }
 
-    // Monotonic Stack
+    // Monotonic Stack - increasing
     // Time: O(n), space: O(n)
     public static int largestRectangleArea(int[] heights) {
         int n = heights.length;
@@ -37,6 +37,7 @@ public class LargestRectangleInHistogram {
         return res;
     }
 
+    // Time: O(n), space: O(n)
     public static int largestRectangleArea1(int[] heights) {
         int[] lessAtLeft = new int[heights.length];
         int[] lessAtRight = new int[heights.length];
