@@ -21,7 +21,7 @@ public class LargestRectangleInHistogram {
         Deque<int[]> stk = new ArrayDeque<>();
         for (int i = 0; i < heights.length; i++) {
             int start = i;
-            while (!stk.isEmpty() && stk.peek()[1] > heights[i]) {
+            while (!stk.isEmpty() && stk.peek()[1] < heights[i]) {
                 int[] top = stk.pop();
                 res = Math.max(res, top[1] * (i - top[0]));
                 start = top[0];
