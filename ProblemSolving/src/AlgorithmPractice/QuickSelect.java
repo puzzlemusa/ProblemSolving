@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 public class QuickSelect {
     public static void main(String[] args) {
+        System.out.println(Arrays.toString(topKElement(new int[]{3, 2, 1, 5, 6, 4}, 2)));
         System.out.println(Arrays.toString(topKElement(new int[]{3, 0, 1, 0}, 1)));
         System.out.println(Arrays.toString(topKElement(new int[]{1, 1, 1, 2, 2, 3}, 2)));
         System.out.println(Arrays.toString(topKElement(new int[]{1, 1, 1, 2, 2, 3}, 3)));
