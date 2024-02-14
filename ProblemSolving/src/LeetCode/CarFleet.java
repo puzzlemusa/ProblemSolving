@@ -13,6 +13,7 @@ public class CarFleet {
         System.out.println(carFleet(100, new int[]{0, 2, 4}, new int[]{4, 2, 1}));
     }
 
+    // Time complexity: O(nlogn), Space complexity: O(n)
     public static int carFleet(int target, int[] position, int[] speed) {
         Map<Integer, Double> mp = new TreeMap<>(Collections.reverseOrder());
 

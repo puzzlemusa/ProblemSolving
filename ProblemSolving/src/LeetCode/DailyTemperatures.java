@@ -12,6 +12,7 @@ public class DailyTemperatures {
         System.out.println(Arrays.toString(dailyTemperatures(new int[]{30, 60, 90})));
     }
 
+    // Time complexity: O(n), Space complexity: O(n)
     public static int[] dailyTemperatures(int[] temperatures) {
         Stack<Integer> stk = new Stack<>();
         int[] res = new int[temperatures.length];
