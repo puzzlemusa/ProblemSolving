@@ -29,7 +29,6 @@ public class SlidingWindowMaximum {
         return res.stream().mapToInt(i -> i).toArray();
     }
 
-    // TLE
     // Time: O(n), Space: O(k)
     public static int[] maxSlidingWindow1(int[] nums, int k) {
         Deque<Integer> q = new ArrayDeque<>();

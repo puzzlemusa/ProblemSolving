@@ -23,6 +23,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
         System.out.println(lengthOfLongestSubstringWithOutSet("a"));
     }
 
+    // Time complexity: O(n), space complexity: O(1)
     public static int lengthOfLongestSubstring(String s) {
         int subLen = 0;
         int maxVal = 0;

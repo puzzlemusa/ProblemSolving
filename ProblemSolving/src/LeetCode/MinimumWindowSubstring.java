@@ -4,7 +4,7 @@ package LeetCode;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MaximumWindowSubstring {
+public class MinimumWindowSubstring {
 
     public static void main(String[] args) {
         System.out.println(minWindow("ADOBECODEBANC", "ABC"));
